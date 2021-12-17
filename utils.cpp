@@ -84,14 +84,14 @@ vector<int> exhaustiveSearch(const vector<vector<int>> &m)
             res = p;
     }
 
-    if (m.size() < 7)
-    {
-        cout << "==========All Solutions=============\n";
-        for (auto &&p : permutations)
-        {
-            printVector(p);
-        }
-    }
+    // if (m.size() < 7)
+    // {
+    //     cout << "==========All Solutions=============\n";
+    //     for (auto &&p : permutations)
+    //     {
+    //         printVector(p);
+    //     }
+    // }
 
     return res;
 }
