@@ -22,7 +22,7 @@ int main()
         costMatrix.push_back(t);
     }
 
-    // printMatrix(costMatrix);
+    printMatrix(costMatrix);
     time_t before;
     vector<int> solution;
     time_t after;
@@ -34,30 +34,30 @@ int main()
         before = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
         double cost = HungAlgo.Solve(costMatrix, solution);
         after = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-        // cout << "=======Optimal Solution========\n";
-        // for (int i = 0; i < m; i++)
-        //     cout << i << " ";
-        // cout << "Total\n";
-        // solution.push_back(cost);
-        // printVector(solution);
-        // printMatrix(costMatrix, solution);
+        cout << "=======Optimal Solution========\n";
+        for (int i = 0; i < m; i++)
+            cout << i << " ";
+        cout << "Total\n";
+        solution.push_back(cost);
+        printVector(solution);
+        printMatrix(costMatrix, solution);
         cout << "Done in " << after - before << "ms\n";
     }
 
     //==============Brute Force (Exhaustive Search)============
-    // {
-    //     cout << "Brute force: starting timer\n";
-    //     before = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-    //     solution = exhaustiveSearch(costMatrix);
-    //     after = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-    //     cout << "=======Optimal Solution========\n";
-    //     for (int i = 0; i < m; i++)
-    //         cout << i << " ";
-    //     cout << "Total\n";
-    //     printVector(solution);
-    //     printMatrix(costMatrix, solution);
-    //     cout << "Done in " << after - before << "ms\n";
-    // }
+    {
+        cout << "Brute force: starting timer\n";
+        before = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+        solution = exhaustiveSearch(costMatrix);
+        after = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+        cout << "=======Optimal Solution========\n";
+        for (int i = 0; i < m; i++)
+            cout << i << " ";
+        cout << "Total\n";
+        printVector(solution);
+        printMatrix(costMatrix, solution);
+        cout << "Done in " << after - before << "ms\n";
+    }
 
     return 0;
 }
