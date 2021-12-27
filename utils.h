@@ -16,11 +16,11 @@ using std::chrono::system_clock;
 using std::vector, std::cout, std::swap;
 
 vector<int> exhaustiveSearch(const vector<vector<int>> &m);
-// vector<int> hungarianMethod(const vector<vector<int>> &m);
 
 void printMatrix(const vector<vector<int>> &m);
 void printMatrix(const vector<vector<int>> &m, const vector<int> &highlightedIndices);
 
 void printVector(const vector<int> &v);
 
-void allPermutations(vector<int> v, int start, int end, vector<vector<int>> &res);
+//calculates all permutations, and stores the smallest seen permutation in minPermutation
+void allPermutations(const vector<vector<int>> &m, vector<int> v, int start, int end, vector<int> &minPermutation, int &min);

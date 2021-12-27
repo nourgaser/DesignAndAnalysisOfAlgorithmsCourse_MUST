@@ -1,7 +1,7 @@
 #include "utils.h"
 // vector<int> hungarianMethod(const vector<vector<int>> &m) {}
 
-//print matrix with optional highlighting
+// print matrix with optional highlighting
 void printMatrix(const vector<vector<int>> &costMatrix, const vector<int> &highlightedIndices)
 {
     for (int i = 0; i < costMatrix.size(); i++)
@@ -48,50 +48,36 @@ void printVector(const vector<int> &v)
     cout << "\n";
 }
 
-void allPermutations(vector<int> v, int start, int end, vector<vector<int>> &res)
+void allPermutations(const vector<vector<int>> &m, vector<int> v, int start, int end, vector<int> &minPermutation, int &min)
 {
     if (start == end)
     {
-        res.push_back(v);
+        int sum = m[0][v[0]];
+        for (int i = 1; i < m.size(); i++)
+        {
+            sum += m[i][v[i]];
+        }
+        if (sum < min)
+        {
+            min = sum;
+            minPermutation = v;
+            minPermutation.push_back(sum);
+        }
         return;
     }
     for (int i = start; i <= end; i++)
     {
         swap(v[i], v[start]);
-        allPermutations(v, start + 1, end, res);
+        allPermutations(m, v, start + 1, end, minPermutation, min);
         swap(v[i], v[start]);
     }
 }
 
 vector<int> exhaustiveSearch(const vector<vector<int>> &m)
 {
-    vector<vector<int>> permutations;
-    vector<int> indices;
-    for (int i = 0; i < m.size(); i++)
-        indices.push_back(i);
-
-    allPermutations(indices, 0, indices.size() - 1, permutations);
-
-    vector<int> res(m.size());
-    res.push_back(INT16_MAX);
-    for (auto &&p : permutations)
-    {
-        int sum = 0;
-        for (int i = 0; i < m.size(); i++)
-            sum += m[i][p[i]];
-        p.push_back(sum);
-        if (sum < res[m.size()])
-            res = p;
-    }
-
-    // if (m.size() < 7)
-    // {
-    //     cout << "==========All Solutions=============\n";
-    //     for (auto &&p : permutations)
-    //     {
-    //         printVector(p);
-    //     }
-    // }
-
+    vector<int> res;
+    for (int i = 0; i < m.size(); i++) res.push_back(i);
+    int min = INT16_MAX;
+    allPermutations(m, res, 0, m.size() - 1, res, min);
     return res;
 }
