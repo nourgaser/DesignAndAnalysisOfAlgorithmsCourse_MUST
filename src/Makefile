@@ -6,5 +6,6 @@ DEPS = utils.h hungarian.h
 
 main: main.o utils.o hungarian.o
 	$(CC) -o solution main.o hungarian.o utils.o
-clean: 
+
+clean:
 	rm *.o solution

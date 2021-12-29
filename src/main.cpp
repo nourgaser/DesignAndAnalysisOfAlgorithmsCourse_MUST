@@ -46,6 +46,12 @@ int main()
 
     //==============Brute Force (Exhaustive Search)============
     {
+        if (m > 10)
+        {
+            cout << "Brute force method only works well for values of m <= 10" << endl;
+            if (m > 12)
+                return 0;
+        }
         cout << "Brute force: starting timer\n";
         before = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
         solution = exhaustiveSearch(costMatrix);

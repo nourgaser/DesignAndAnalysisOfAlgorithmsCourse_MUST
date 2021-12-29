@@ -76,7 +76,8 @@ void allPermutations(const vector<vector<int>> &m, vector<int> v, int start, int
 vector<int> exhaustiveSearch(const vector<vector<int>> &m)
 {
     vector<int> res;
-    for (int i = 0; i < m.size(); i++) res.push_back(i);
+    for (int i = 0; i < m.size(); i++)
+        res.push_back(i);
     int min = INT16_MAX;
     allPermutations(m, res, 0, m.size() - 1, res, min);
     return res;

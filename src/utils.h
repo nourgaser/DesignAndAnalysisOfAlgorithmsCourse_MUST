@@ -22,5 +22,5 @@ void printMatrix(const vector<vector<int>> &m, const vector<int> &highlightedInd
 
 void printVector(const vector<int> &v);
 
-//calculates all permutations, and stores the smallest seen permutation in minPermutation
+// calculates all permutations, and stores the smallest seen permutation in minPermutation
 void allPermutations(const vector<vector<int>> &m, vector<int> v, int start, int end, vector<int> &minPermutation, int &min);
