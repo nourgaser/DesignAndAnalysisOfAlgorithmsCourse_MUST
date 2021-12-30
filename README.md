@@ -34,3 +34,9 @@ Just clone this repo and use the Makefile attached. (Run `$ make`.)
 |20000|-|-|
 
 All calculations were carried out on the same machine with the same cost matrix, each value of n was run 10 times and the average is included in the above table.
+##### Emperical Analysis of The Hungarian Algorithms Implementation
+Data points plotted for the above values:
+
+![graph](https://github.com/nourgaser/DesignAndAnalysisOfAlgorithmsCourse_MUST/blob/main/img/emperical_analysis.png)
+
+It's clear that the plot of the points roughly aligns with some 3rd degree polynomial graph; even more clearer if we run the program with more points but I'll leave that as an excercise to someone else; feel free to contribute.
